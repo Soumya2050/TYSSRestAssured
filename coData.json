@@ -1,0 +1,13 @@
+{
+  "name" : "soumya",
+  "empId" : "whsd",
+  "spouse" : {
+    "name" : "jk",
+    "age" : 21,
+    "phNo" : [ 12345, 45675 ]
+  },
+  "sal" : 25000,
+  "mobNo" : [ 12345, 45675 ],
+  "mail" : [ "acndfcb@gmail.com", "snedhbf@gmail.com" ],
+  "age" : 24
+}

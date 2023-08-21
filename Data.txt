@@ -1,0 +1,27 @@
+[ {
+  "emp" : [ {
+    "name" : "soumya",
+    "empId" : "whsd",
+    "spouse" : {
+      "name" : "jk",
+      "age" : 21,
+      "phNo" : [ 12345, 45675 ]
+    },
+    "sal" : 25000,
+    "mobNo" : [ 12345, 45675 ],
+    "mail" : [ "acndfcb@gmail.com", "snedhbf@gmail.com" ],
+    "age" : 24
+  }, {
+    "name" : "Manoranjan",
+    "empId" : "xyz",
+    "spouse" : {
+      "name" : "ndhfgjmnhjdsg",
+      "age" : 21,
+      "phNo" : [ 123453245, 4567524 ]
+    },
+    "sal" : 45000,
+    "mobNo" : [ 123453245, 4567524 ],
+    "mail" : [ "acndfcb,msdnf@gmail.com", "snedhbfsmdnkb@gmail.com" ],
+    "age" : 24
+  } ]
+} ]
