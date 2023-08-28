@@ -28,7 +28,7 @@ public class BrokenLinksAmazon {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().deleteAllCookies();
 		driver.get("https://www.amazon.in/");
-
+		
 		List<WebElement> links = driver.findElements(By.xpath("//a"));
 		ArrayList<Object> list = new ArrayList<>();
 		for (int i = 0; i < links.size(); i++) {
