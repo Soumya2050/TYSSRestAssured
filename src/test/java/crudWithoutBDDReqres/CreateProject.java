@@ -1,5 +1,7 @@
 package crudWithoutBDDReqres;
 
+import java.util.Map;
+
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -42,7 +44,7 @@ public class CreateProject {
 		
 		System.out.println(response.getContentType());
 		System.err.println(response.getTime());
-		System.out.println(response.prettyPeek());
+		System.out.println(response.asString());
 	}
 	
 	@Test(priority = 3)
@@ -92,5 +94,4 @@ public class CreateProject {
 		Assert.assertEquals(204, statuscode,"The status code is passed");
 		System.err.println(response.getTime());				
 	}
-
 }

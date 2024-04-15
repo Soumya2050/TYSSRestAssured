@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="InterViewQuestion.HideSencitiveDataOutOfLog">
+      <class name="aaaaa.BrokenLinksAmazon">
         <methods>
-          <include name="method"/>
+          <include name="asserttFgh"/>
         </methods>
-      </class> <!-- InterViewQuestion.HideSencitiveDataOutOfLog -->
+      </class> <!-- aaaaa.BrokenLinksAmazon -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

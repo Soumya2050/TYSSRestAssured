@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Collections;
+import java.util.Random;
 
 import org.json.simple.JSONObject;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.restassured.http.ContentType;
+
+import static io.restassured.RestAssured.*;
 
 public class Test3 {
 
@@ -33,7 +37,7 @@ public class Test3 {
 		}
 
 	}
-	
+
 	@Test
 	public void chrome() {
 		ChromeOptions op = new ChromeOptions();
@@ -47,6 +51,23 @@ public class Test3 {
 		driver.get("https://www.makemytrip.com/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
+	}
+
+	@Test
+	public void unlimitedPost() {
+
+		for (;;) {
+			baseURI = "https://reqres.in";
+			Random ran = new Random();
+			int random = ran.nextInt(10);
+			JSONObject obj = new JSONObject();
+
+			obj.put("name", "Jyoti-" + random + "");
+			obj.put("job", "SoftwareTE");
+
+			given().body(obj).contentType(ContentType.JSON).when().post("/api/users").then().statusCode(201).log()
+					.all();
+		}
 	}
 
 }

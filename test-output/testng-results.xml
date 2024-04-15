@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-28T16:04:16 IST" name="Default suite" finished-at="2023-08-28T16:08:42 IST" duration-ms="266585">
+  <suite started-at="2023-09-25T22:16:59 IST" name="Default suite" finished-at="2023-09-25T22:17:01 IST" duration-ms="1968">
     <groups>
     </groups>
-    <test started-at="2023-08-28T16:04:16 IST" name="Default test" finished-at="2023-08-28T16:08:42 IST" duration-ms="266585">
-      <class name="aaaaa.BrokenLinksAmazon">
-        <test-method signature="mains()[pri:0, instance:aaaaa.BrokenLinksAmazon@2ea41516]" started-at="2023-08-28T16:04:16 IST" name="mains" finished-at="2023-08-28T16:08:42 IST" duration-ms="266552" status="PASS">
+    <test started-at="2023-09-25T22:16:59 IST" name="Default test" finished-at="2023-09-25T22:17:01 IST" duration-ms="1968">
+      <class name="crudWithoutBDDReqres.CreateProject">
+        <test-method signature="getProect()[pri:2, instance:crudWithoutBDDReqres.CreateProject@6e0f5f7f]" started-at="2023-09-25T22:16:59 IST" name="getProect" finished-at="2023-09-25T22:17:01 IST" duration-ms="1932" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- mains -->
-      </class> <!-- aaaaa.BrokenLinksAmazon -->
+        </test-method> <!-- getProect -->
+      </class> <!-- crudWithoutBDDReqres.CreateProject -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

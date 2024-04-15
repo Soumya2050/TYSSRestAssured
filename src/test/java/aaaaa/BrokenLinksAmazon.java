@@ -9,30 +9,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class BrokenLinksAmazon {
-	
-	
+
 	@Test
 	public static void mains() throws Throwable {
 
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
+//		WebDriverManager.chromedriver().setup();
+		ChromeOptions option = new ChromeOptions();
+		option.addArguments("--headless");
+		WebDriver driver = new ChromeDriver(option);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().deleteAllCookies();
 		driver.get("https://www.amazon.in/");
-		
-		List<WebElement> links = driver.findElements(By.xpath("//a"));
+
+		List<WebElement> links = driver.findElements(By.tagName("a"));
 		ArrayList<Object> list = new ArrayList<>();
-		for (int i = 0; i < links.size(); i++) {
-			String link = links.get(i).getAttribute("href");
+		for (WebElement webElement : links) {
+			String link = webElement.getAttribute("href");
 			int statuscode = 0;
 
 			try {
@@ -55,8 +57,10 @@ public class BrokenLinksAmazon {
 
 	public static void main(String[] args) throws IOException {
 
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
+//		WebDriverManager.chromedriver().setup();
+		ChromeOptions option = new ChromeOptions();
+		option.addArguments("--headless");
+		WebDriver driver = new ChromeDriver(option);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().deleteAllCookies();
@@ -128,6 +132,47 @@ public class BrokenLinksAmazon {
 		}
 		driver.quit();
 
+	}
+
+	@Test
+	public void brLink() {
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://www.amazon.in");
+		
+		List<WebElement> allLink=driver.findElements(By.tagName("a"));
+		ArrayList<String>list = new ArrayList<>();
+		for (WebElement webElement : allLink) {
+			String urlLink=webElement.getAttribute("href");
+			
+			try {
+				URL url = new URL(urlLink);
+				URLConnection connection=url.openConnection();
+				HttpURLConnection httpConnection = (HttpURLConnection)connection;
+				if(httpConnection.getResponseCode()>=400)
+				{
+					list.add(urlLink+"-->"+httpConnection.getResponseCode()+"-->"+httpConnection.getResponseMessage());
+				}
+			} catch (Exception e) {}
+		}
+		
+		for (String string : list) {
+			System.out.println(string);
+		}
+
+	}
+	
+	@Test
+	public void asserttFgh() {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://demo.actitime.com/login.do");
+		WebElement ele=driver.findElement(By.name("username"));ele.sendKeys("admin");
+		Actions a = new Actions(driver);
+		a.click(ele).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
 	}
 
 }

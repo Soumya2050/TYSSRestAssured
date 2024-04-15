@@ -34,7 +34,7 @@ public class Test1 {
 		op.addArguments("--disable-notifications");
 		op.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 		op.setExperimentalOption("useAutomationExtension", false);
-		WebDriverManager.chromedriver().setup();
+//		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver(op);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
@@ -88,9 +88,9 @@ public class Test1 {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[@class='bgProperties icon20 overlayCrossIcon']")).click();
 
-//		WebElement air = driver.findElement(By
-//				.xpath("//p[.='Airlines']/../descendant::p[@class='appendBottom15']/span[@class='linkText pointer']"));
-//		a.scrollToElement(air).pause(500).click(air).perform();
+		WebElement air = driver.findElement(By
+				.xpath("//p[.='Airlines']/../descendant::p[@class='appendBottom15']/span[@class='linkText pointer']"));
+		a.scrollToElement(air).pause(500).click(air).perform();
 
 		List<WebElement> airlines = driver
 				.findElements(By.xpath("//p[.='Airlines']/parent::div/descendant::label/descendant::p"));
